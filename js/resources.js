@@ -3,16 +3,16 @@ game.resources = [
 	 * Graphics.
 	 */
     // the main player spritesheet
-	{name: "Player",     type:"image",	src: "data/img/Player.png"},
+	{name: "player", type:"image", src: "data/img/player.png"},
     // our enemy entity
-	{name: "Redrock",       type:"image",	src: "data/img/Redrock.png"},
+	{name: "redrock", type:"image", src: "data/img/red_rock.png"},
 	// our level tileset
-	{name: "Tile1",  type:"image",	src: "data/img/Tile1.png"},
+	{name: "tile1", type:"image", src: "data/img/tile1.png"},
 
 	/*
 	 * Maps.
  	 */
-	{name: "level1",              type: "tmx",	src: "data/level1.tmx"}
+	{name: "level1", type: "tmx", src: "data/level1.tmx"}
 
 	/*
 	 * Background music.
