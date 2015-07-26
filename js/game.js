@@ -5,7 +5,8 @@ var game = {
     // an object where to store game information
     data : {
         // score
-        score : 0
+        score : 0,
+        percentageAir : 100
     },
 
 
@@ -40,17 +41,20 @@ var game = {
     // Run on game resources loaded.
     "loaded" : function () {
         me.state.set(me.state.MENU, new game.TitleScreen());
+
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // add our player entity in the entity pool
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("EnemyEntity", game.EnemyEntity);
+        me.pool.register("air_bubble_indicator", game.HUD.air_bubble_indicator);
 
         // enable the keyboard
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.X,     "jump");
         me.input.bindKey(me.input.KEY.Z,     "inhale");
+        me.input.bindKey(me.input.KEY.SPACE, "shoot", true);
 
         // Start the game.
         me.state.change(me.state.PLAY);

@@ -1,24 +1,40 @@
 game.resources = [
-	/**
-	 * Graphics.
-	 */
     // the main player spritesheet
-	{name: "Player",     type:"image",	src: "data/img/Player.png"},
+    {
+        "name": "player",
+        "type": "image",
+        "src": "data/img/player.png"
+    },
+
     // our enemy entity
-	{name: "Redrock",       type:"image",	src: "data/img/Redrock.png"},
-	// our level tileset
-	{name: "Tile1",  type:"image",	src: "data/img/Tile1.png"},
+    {
+        "name": "red_rock",
+        "type": "image",
+        "src": "data/img/red_rock.png"
+    },
 
-	/*
-	 * Maps.
- 	 */
-	{name: "level1",              type: "tmx",	src: "data/level1.tmx"}
+    // our level tileset
+    {
+        "name": "tile1",
+        "type": "image",
+        "src": "data/img/tile1.png"
+    },
 
-	/*
-	 * Background music.
-	 */
+    // HUD
+    {
+        "name": "air_bubbles",
+        "type": "image",
+        "src": "data/img/air_bubbles.png"
+    },
 
-	/*
-	 * Sound effects.
-	 */
+    // Maps.
+    {
+        name: "level1",
+        type: "tmx",
+        src: "data/level1.tmx"
+    }
+
+    // Background music.
+
+    // Sound effects.
 ];

@@ -25,6 +25,7 @@ game.HUD.Container = me.Container.extend({
 
         // add our child score object at the top left corner
         this.addChild(new game.HUD.ScoreItem(5, 5));
+        this.addChild(new game.HUD.air_bubble_indicator());
     }
 });
 
