@@ -20,13 +20,6 @@ game.resources = [
         "src": "data/img/tile1.png"
     },
 
-    // HUD
-    {
-        "name": "air_bubbles",
-        "type": "image",
-        "src": "data/img/air_bubbles.png"
-    },
-
     // Maps.
     {
         name: "level1",

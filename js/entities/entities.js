@@ -34,6 +34,7 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
+        var update = false;
         if (me.input.isKeyPressed('left')) {
             // flip the sprite on horizontal axis
             this.renderable.flipX(true);
@@ -43,6 +44,7 @@ game.PlayerEntity = me.Entity.extend({
             if (!this.renderable.isCurrentAnimation("walk")) {
                 this.renderable.setCurrentAnimation("walk");
             }
+            update = true;
         } else if (me.input.isKeyPressed('right')) {
             // unflip the sprite
             this.renderable.flipX(false);
@@ -52,10 +54,13 @@ game.PlayerEntity = me.Entity.extend({
             if (!this.renderable.isCurrentAnimation("walk")) {
                 this.renderable.setCurrentAnimation("walk");
             }
+            update = true;
         } else {
             this.body.vel.x = 0;
             // change to the standing animation
             this.renderable.setCurrentAnimation("stand");
+            //return (this._super(me.Entity, 'update', [dt]) || true);
+            update = true;
         }
 
         if (me.input.isKeyPressed('jump')) {
@@ -68,12 +73,14 @@ game.PlayerEntity = me.Entity.extend({
                 this.body.jumping = true;
                 this.renderable.setCurrentAnimation("jumping");
             }
+            update = true;
         }
 
         if (me.input.isKeyPressed('inhale')) {
             if (this.percentageAir < 100) {
                 this.percentageAir += 1;
             }
+            update = true;
         }
 
         if (this.body.jumping) {
@@ -90,7 +97,7 @@ game.PlayerEntity = me.Entity.extend({
         me.collision.check(this);
 
         // return true if we moved or if the renderable was updated
-        return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+        return (this._super(me.Entity, 'update', [dt]) || update || this.body.vel.x !== 0 || this.body.vel.y !== 0);
     },
 
     /**

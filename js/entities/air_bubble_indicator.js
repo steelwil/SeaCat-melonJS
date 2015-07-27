@@ -2,14 +2,14 @@ game.HUD.air_bubble_indicator = me.Renderable.extend({
     init : function() {
         this._super(me.Renderable, 'init', [me.game.viewport.getWidth() - 96, 0, 96, 16]);
         this.animationSheet = new me.AnimationSheet(0, 0, {
-            image : "air_bubbles",
+            image : "tile1",
             framewidth : 16,
             frameheight : 16
         });
-        this.animationSheet.addAnimation("0", [0]);
-        this.animationSheet.addAnimation("1", [1]);
-        this.animationSheet.addAnimation("2", [2]);
-        this.animationSheet.addAnimation("3", [3]);
+        this.animationSheet.addAnimation("0", [53]);
+        this.animationSheet.addAnimation("1", [54]);
+        this.animationSheet.addAnimation("2", [55]);
+        this.animationSheet.addAnimation("3", [56]);
     },
 
   draw : function(renderer) {
