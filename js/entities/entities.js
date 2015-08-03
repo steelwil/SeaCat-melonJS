@@ -26,6 +26,8 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.addAnimation("falling", [4]);
         // define a standing animation (using the first frame)
         this.renderable.addAnimation("stand", [0]);
+        // define sucking
+        this.renderable.addAnimation("suck", [5]);
         // set the standing animation as default
         this.renderable.setCurrentAnimation("stand");
     },
@@ -79,6 +81,9 @@ game.PlayerEntity = me.Entity.extend({
         if (me.input.isKeyPressed('inhale')) {
             if (this.percentageAir < 100) {
                 this.percentageAir += 1;
+                if (!this.renderable.isCurrentAnimation("suck")) {
+                    this.renderable.setCurrentAnimation("suck");
+                }
             }
             update = true;
         }
