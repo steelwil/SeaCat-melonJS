@@ -24,7 +24,7 @@ game.resources = [
     {
         name: "level1",
         type: "tmx",
-        src: "data/level1.tmx"
+        src: "data/map/level1.tmx"
     },
 
     // backgrounds
@@ -33,12 +33,6 @@ game.resources = [
         type: "image",
         src: "data/img/backgroundl1.png"
     },
-
-    {
-        name: "backgroundl2",
-        type: "image",
-        src: "data/img/backgroundl2.png"
-    }
 
     // Background music.
 

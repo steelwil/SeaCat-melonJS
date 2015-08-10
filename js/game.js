@@ -51,10 +51,13 @@ var game = {
 
         // enable the keyboard
         me.input.bindKey(me.input.KEY.LEFT,  "left");
+        me.input.bindKey(me.input.KEY.A,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
-        me.input.bindKey(me.input.KEY.X,     "jump");
-        me.input.bindKey(me.input.KEY.Z,     "inhale");
-        me.input.bindKey(me.input.KEY.SPACE, "shoot", true);
+        me.input.bindKey(me.input.KEY.D, "right");
+        me.input.bindKey(me.input.KEY.X, "jump");
+        me.input.bindKey(me.input.KEY.SPACE, "jump");
+        me.input.bindKey(me.input.KEY.Z, "inhale");
+        me.input.bindKey(me.input.KEY.ENTER, "shoot", true);
 
         // Start the game.
         me.state.change(me.state.PLAY);
