@@ -1,65 +1,92 @@
-
-/* Game namespace */
+/**
+ * main
+ */
 var game = {
 
-    // an object where to store game information
+    /**
+     * object where to store game global data
+     */
     data : {
         // score
         score : 0,
         percentageAir : 100
     },
 
+    /**
+     *
+     * Initialize the application
+     */
+    onload: function() {
+        // init the video
+		if (!me.video.init(320, 240, {wrapper : "screen", scale : "auto"})) {
+            alert("Your browser does not support HTML5 canvas.");
+            return;
+        }
 
-    // Run on page load.
-    "onload" : function () {
-    // Initialize the video.
-    if (!me.video.init(320, 240, {wrapper : "screen", scale : "auto"})) {
-        alert("Your browser does not support HTML5 canvas.");
-        return;
-    }
+        // Set some default debug flags
+        me.debug.renderHitBox = true;
 
-    // add "#debug" to the URL to enable the debug Panel
-    if (me.game.HASH.debug === true) {
-        window.onReady(function () {
-            me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
-        });
-    }
+        // add "#debug" to the URL to enable the debug Panel
+        if (me.game.HASH.debug === true) {
+            window.onReady(function () {
+                me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
+            });
+        }
 
-    // Initialize the audio.
-    me.audio.init("mp3,ogg");
+        // initialize the "sound engine"
+        me.audio.init("mp3,ogg");
 
-    // Set a callback to run when loading is complete.
-    me.loader.onload = this.loaded.bind(this);
+        // set all ressources to be loaded
+        me.loader.onload = this.loaded.bind(this);
 
-    // Load the resources.
-    me.loader.preload(game.resources);
+        // set all ressources to be loaded
+        me.loader.preload(game.resources);
 
-    // Initialize melonJS and display a loading screen.
-    me.state.change(me.state.LOADING);
-},
+        // load everything & display a loading screen
+        me.state.change(me.state.LOADING);
+    },
 
-    // Run on game resources loaded.
-    "loaded" : function () {
-        me.state.set(me.state.MENU, new game.TitleScreen());
 
+    /**
+     * callback when everything is loaded
+     */
+    loaded: function ()    {
+
+        // set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
-        // add our player entity in the entity pool
+        // set the fade transition effect
+        me.state.transition("fade","#FFFFFF", 250);
+
+        // register our objects entity in the object pool
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("EnemyEntity", game.EnemyEntity);
         me.pool.register("air_bubble_indicator", game.HUD.air_bubble_indicator);
 
-        // enable the keyboard
-        me.input.bindKey(me.input.KEY.LEFT,  "left");
-        me.input.bindKey(me.input.KEY.A,  "left");
-        me.input.bindKey(me.input.KEY.RIGHT, "right");
-        me.input.bindKey(me.input.KEY.D, "right");
-        me.input.bindKey(me.input.KEY.X, "jump");
-        me.input.bindKey(me.input.KEY.SPACE, "jump");
-        me.input.bindKey(me.input.KEY.Z, "inhale");
-        me.input.bindKey(me.input.KEY.ENTER, "shoot", true);
 
-        // Start the game.
+        // add some keyboard shortcuts
+        me.event.subscribe(me.event.KEYDOWN, function (action, keyCode /*, edge */) {
+
+            // change global volume setting
+            if (keyCode === me.input.KEY.PLUS) {
+                // increase volume
+                me.audio.setVolume(me.audio.getVolume()+0.1);
+            } else if (keyCode === me.input.KEY.MINUS) {
+                // decrease volume
+                me.audio.setVolume(me.audio.getVolume()-0.1);
+            }
+
+            // toggle fullscreen on/off
+            if (keyCode === me.input.KEY.F) {
+                if (!me.device.isFullscreen) {
+                    me.device.requestFullscreen();
+                } else {
+                    me.device.exitFullscreen();
+                }
+            }
+        });
+
+        // switch to PLAY state
         me.state.change(me.state.PLAY);
     }
 };

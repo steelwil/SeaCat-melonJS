@@ -1,19 +1,31 @@
-/**
- * Player Entity
- */
+/************************************************************************************/
+/*                                                                                  */
+/*        a player entity                                                           */
+/*                                                                                  */
+/************************************************************************************/
 game.PlayerEntity = me.Entity.extend({
-    // constructor
-    init:function (x, y, settings) {
+    init: function(x, y, settings) {
         // call the constructor
-        this._super(me.Entity, 'init', [x, y , settings]);
+        this._super(me.Entity, "init", [x, y , settings]);
 
         this.percentageAir = settings.percentageAir;
 
         // set the default horizontal & vertical speed (accel vector)
         this.body.setVelocity(3, 3); // horizontal, vertical
+        this.body.setFriction(0.4,0);
 
         // set the display to follow our position on both axis
-        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+        me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
+
+        me.input.bindKey(me.input.KEY.LEFT,  "left");
+        me.input.bindKey(me.input.KEY.A,  "left");
+        me.input.bindKey(me.input.KEY.RIGHT, "right");
+        me.input.bindKey(me.input.KEY.D, "right");
+        me.input.bindKey(me.input.KEY.X, "jump");
+        me.input.bindKey(me.input.KEY.SPACE, "jump");
+        me.input.bindKey(me.input.KEY.W, "swim");
+        me.input.bindKey(me.input.KEY.Z, "inhale");
+        me.input.bindKey(me.input.KEY.ENTER, "shoot", true);
 
         // ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
@@ -32,9 +44,11 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("stand");
     },
 
-    /**
-     * update the entity
-     */
+    /* -----
+
+        update the player pos
+
+    ------            */
     update : function (dt) {
         var update = false;
         if (me.input.isKeyPressed('left')) {
@@ -75,6 +89,16 @@ game.PlayerEntity = me.Entity.extend({
                 this.body.jumping = true;
                 this.renderable.setCurrentAnimation("jumping");
             }
+            update = true;
+        }
+
+        if (me.input.isKeyPressed('swim')) {
+            // set current vel to the maximum defined value
+            // gravity will then do the rest
+            this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+            // set the jumping flag
+            this.body.jumping = true;
+            this.renderable.setCurrentAnimation("jumping");
             update = true;
         }
 

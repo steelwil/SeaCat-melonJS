@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="41" height="30" tilewidth="16" tileheight="16" backgroundcolor="#008ffb" nextobjectid="51">
- <properties>
-  <property name="ratio" value="0.3"/>
- </properties>
  <tileset firstgid="1" name="tile1" tilewidth="16" tileheight="16" tilecount="100">
   <image source="../img/tile1.png" width="160" height="160"/>
  </tileset>
