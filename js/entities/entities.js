@@ -23,7 +23,7 @@ game.PlayerEntity = me.Entity.extend({
         me.input.bindKey(me.input.KEY.D, "right");
         me.input.bindKey(me.input.KEY.X, "jump");
         me.input.bindKey(me.input.KEY.SPACE, "jump");
-        me.input.bindKey(me.input.KEY.W, "swim");
+        me.input.bindKey(me.input.KEY.W, "jump");
         me.input.bindKey(me.input.KEY.Z, "inhale");
         me.input.bindKey(me.input.KEY.ENTER, "shoot", true);
 
@@ -92,24 +92,16 @@ game.PlayerEntity = me.Entity.extend({
             update = true;
         }
 
-        if (me.input.isKeyPressed('swim')) {
-            // set current vel to the maximum defined value
-            // gravity will then do the rest
-            this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-            // set the jumping flag
-            this.body.jumping = true;
-            this.renderable.setCurrentAnimation("jumping");
-            update = true;
-        }
-
         if (me.input.isKeyPressed('inhale')) {
-            if (this.percentageAir < 100) {
-                this.percentageAir += 1;
-                if (!this.renderable.isCurrentAnimation("suck")) {
-                    this.renderable.setCurrentAnimation("suck");
+            if (!this.body.jumping) {
+                if (this.percentageAir < 100) {
+                    this.percentageAir += 1;
+                    if (!this.renderable.isCurrentAnimation("suck")) {
+                        this.renderable.setCurrentAnimation("suck");
+                    }
+                    update = true;
                 }
             }
-            update = true;
         }
 
         if (this.body.jumping) {
