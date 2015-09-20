@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="TuronsOctopus" InternalType="" SWTLW="No">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+  <VirtualDirectory Name="js">
+    <File Name="js/game.js"/>
+    <File Name="js/resources.js"/>
+    <VirtualDirectory Name="entities">
+      <File Name="js/entities/air_bubble_indicator.js"/>
+      <File Name="js/entities/entities.js"/>
+      <File Name="js/entities/HUD.js"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="screens">
+      <File Name="js/screens/play.js"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="data">
+    <VirtualDirectory Name="img">
+      <File Name="data/img/backgroundl1.png"/>
+      <File Name="data/img/player.png"/>
+      <File Name="data/img/player-mirror.png"/>
+      <File Name="data/img/red_rock.png"/>
+      <File Name="data/img/tile1.png"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="map">
+      <File Name="data/map/level1.tmx"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="src">
+    <File Name="index.css"/>
+    <File Name="index.html"/>
+    <File Name="LICENSE"/>
+    <File Name="MIT-LICENSE"/>
+    <File Name="README.md"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="lib">
+    <File Name="lib/melonJS.js"/>
+    <VirtualDirectory Name="plugins">
+      <File Name="lib/plugins/debug/debugPanel.js"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+</CodeLite_Project>
