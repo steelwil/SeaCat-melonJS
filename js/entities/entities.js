@@ -17,6 +17,10 @@ game.PlayerEntity = me.Entity.extend({
         // set the display to follow our position on both axis
         me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
 
+        me.input.bindKey(me.input.KEY.UP,  "up");
+        me.input.bindKey(me.input.KEY.DOWN,  "down");
+        me.input.bindKey(me.input.KEY.W,  "up");
+        me.input.bindKey(me.input.KEY.S,  "down");
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.A,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
@@ -40,6 +44,10 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.addAnimation("stand", [0]);
         // define sucking
         this.renderable.addAnimation("suck", [5]);
+        this.renderable.addAnimation("suck-up", [6]);
+        this.renderable.addAnimation("suck-down", [7]);
+        // define blowing 
+        this.renderable.addAnimation("blow", [8]);
         // set the standing animation as default
         this.renderable.setCurrentAnimation("stand");
     },
@@ -96,7 +104,13 @@ game.PlayerEntity = me.Entity.extend({
             if (!this.body.jumping) {
                 if (this.percentageAir < 100) {
                     this.percentageAir += 1;
-                    if (!this.renderable.isCurrentAnimation("suck")) {
+                    if (me.input.isKeyPressed('up')) {
+                        this.renderable.setCurrentAnimation("suck-up")
+                    }
+                    else if (me.input.isKeyPressed('down')) {
+                        this.renderable.setCurrentAnimation("suck-down")
+                    }  
+                    else if (this.renderable.isCurrentAnimation("stand")) {
                         this.renderable.setCurrentAnimation("suck");
                     }
                     update = true;
