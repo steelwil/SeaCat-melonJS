@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="tile1" tilewidth="16" tileheight="16" tilecount="100">
   <image source="../img/tile1.png" width="160" height="160"/>
  </tileset>
- <imagelayer name="Parallax_layer1">
+ <imagelayer name="Parallax_layer1" x="-640" y="-144">
   <image source="../img/backgroundl1.png"/>
   <properties>
    <property name="anchorPoint" value="json:{&quot;x&quot;:0,&quot;y&quot;:1}"/>

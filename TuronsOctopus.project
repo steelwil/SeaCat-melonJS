@@ -91,4 +91,5 @@
       <File Name="lib/plugins/debug/debugPanel.js"/>
     </VirtualDirectory>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
 </CodeLite_Project>
