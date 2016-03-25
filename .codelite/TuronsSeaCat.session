@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="/home/wil/Downloads/games/Turon/melonjs/SeaCat/TuronsSeaCat.workspace">
+  <int Value="1" Name="m_selectedTab"/>
+  <wxString Value="/home/wil/Downloads/games/Turon/melonjs/SeaCat/TuronsSeaCat.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="/home/disk/wil/Downloads/games/Turon/melonjs/SeaCat/js/game.js" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="51" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/disk/wil/Downloads/games/Turon/melonjs/SeaCat/index.html" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="10" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+</Session>
