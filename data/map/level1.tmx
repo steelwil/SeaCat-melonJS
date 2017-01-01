@@ -6,6 +6,7 @@
  <imagelayer name="Parallax_layer1">
   <image source="../img/backgroundl1.png" width="660" height="480"/>
   <properties>
+   <property name="anchorPoint" value="json:{&quot;x&quot;:0,&quot;y&quot;:1}"/>
    <property name="ratio" value="0.4"/>
   </properties>
  </imagelayer>
