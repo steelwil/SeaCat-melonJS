@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="41" height="30" tilewidth="16" tileheight="16" backgroundcolor="#008ffb" nextobjectid="51">
- <tileset firstgid="1" name="tile1" tilewidth="16" tileheight="16" tilecount="100">
+ <tileset firstgid="1" name="tile1" tilewidth="16" tileheight="16" tilecount="100" columns="10">
   <image source="../img/tile1.png" width="160" height="160"/>
  </tileset>
- <imagelayer name="Parallax_layer1" x="-640" y="-144">
-  <image source="../img/backgroundl1.png"/>
+ <imagelayer name="Parallax_layer1">
+  <image source="../img/backgroundl1.png" width="660" height="480"/>
   <properties>
-   <property name="anchorPoint" value="json:{&quot;x&quot;:0,&quot;y&quot;:1}"/>
    <property name="ratio" value="0.4"/>
   </properties>
  </imagelayer>

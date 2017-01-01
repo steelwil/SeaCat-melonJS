@@ -59,8 +59,10 @@
     <File Name="js/resources.js"/>
     <VirtualDirectory Name="entities">
       <File Name="js/entities/air_bubble_indicator.js"/>
-      <File Name="js/entities/entities.js"/>
       <File Name="js/entities/HUD.js"/>
+      <File Name="js/entities/kitty.js"/>
+      <File Name="js/entities/suck_weapon.js"/>
+      <File Name="js/entities/red_rock.js"/>
     </VirtualDirectory>
     <VirtualDirectory Name="screens">
       <File Name="js/screens/play.js"/>
